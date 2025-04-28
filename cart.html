@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - CraftZon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+    <div class="container">
+        <div class="logo">
+            <img src="pic/AAA.png" height="60px" width="60px" alt="CraftZon Logo">
+            <h1>Craft<span style="color:#fdbb2d">Zon</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="menu.html">Catalog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                    <a href="cart.html">
+                        <i class="fas fa-shopping-cart"></i> 
+                        <span id="cart-count">0</span>
+                        <span class="cart-count" id="cart-num">0</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+</header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Your Cart</h2>
+            <p>Review your furniture selections before checkout</p>
+        </div>
+    </section>
+
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-container">
+                <div class="cart-items" id="cart-items">
+                    <!-- Cart items will be loaded via JavaScript -->
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Your cart is empty</p>
+                        <a href="menu.html" class="btn">Browse Catalog</a>
+                    </div>
+                </div>
+                <div class="cart-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">¢0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery Fee</span>
+                        <span id="delivery-fee">¢49.99</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax (8%)</span>
+                        <span id="tax">¢0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Assembly Fee</span>
+                        <span id="assembly-fee">¢99.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="total">¢148.98</span>
+                    </div>
+                    <a href="checkout.html" class="btn checkout-btn" id="checkout-btn">Proceed to Checkout</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-section">
+             <img src="pic/AAA.png" height="80px" width="80px" >   
+                  <p> Crafted with passion, delivered with love.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Catalog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Ghana accra tema</p>
+                <p>Phone:+233557501771</p>
+                <p>Email:craftzon@yahoo.com </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 CraftZon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        // Load cart items when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartDisplay();
+            
+            // Disable checkout button if cart is empty
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cart.length === 0) {
+               document.getElementById('checkout-subtotal').textContent = `₵${subtotal.toFixed(2)}`;
+document.getElementById('checkout-delivery').textContent = `₵${deliveryFee.toFixed(2)}`;
+document.getElementById('checkout-assembly').textContent = `₵${assemblyFee.toFixed(2)}`;
+document.getElementById('checkout-tax').textContent = `₵${tax.toFixed(2)}`;
+document.getElementById('checkout-total').textContent = `₵${total.toFixed(2)}`;
+
+            }
+        });
+    </script>
+</body>
+</html>

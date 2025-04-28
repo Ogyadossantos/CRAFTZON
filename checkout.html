@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - CraftZon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                  <img src="pic/AAA.png" height="80px" width="80px" >  
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Catalog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Checkout</h2>
+            <p>Complete your furniture order</p>
+        </div>
+    </section>
+
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-steps">
+                <div class="step active" data-step="1">
+                    <span>1</span>
+                    <p>Delivery Info</p>
+                </div>
+                <div class="step" data-step="2">
+                    <span>2</span>
+                    <p>Payment</p>
+                </div>
+                <div class="step" data-step="3">
+                    <span>3</span>
+                    <p>Confirmation</p>
+                </div>
+            </div>
+
+            <form id="checkout-form">
+                <div class="checkout-content" id="step-1">
+                    <h3>Delivery Information</h3>
+                    <div class="form-group">
+                        <label for="delivery-name">Full Name</label>
+                        <input type="text" id="delivery-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="delivery-phone">Phone Number</label>
+                        <input type="tel" id="delivery-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="delivery-address">Delivery Address</label>
+                        <textarea id="delivery-address" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="delivery-instructions">Special Instructions (Optional)</label>
+                        <textarea id="delivery-instructions" rows="2" placeholder="Building access, floor number, etc."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="delivery-time">Delivery Date</label>
+                        <input type="date" id="delivery-time" required>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="assembly-required"> 
+                            Include professional assembly (¢99)
+                        </label>
+                    </div>
+                    <div class="checkout-nav">
+                        <button type="button" class="btn next-btn" data-next="2">Continue to Payment</button>
+                    </div>
+                </div>
+
+                <div class="checkout-content hidden" id="step-2">
+                    <h3>Payment Method</h3>
+                    <div class="payment-methods">
+                        <div class="payment-method">
+                            <input type="radio" id="credit-card" name="payment-method" value="credit-card" checked>
+                            <label for="credit-card">Credit/Debit Card</label>
+                            <div class="payment-details" id="credit-card-details">
+                                <div class="form-group">
+                                    <label for="card-number">Card Number</label>
+                                    <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="form-group">
+                                    <label for="card-name">Name on Card</label>
+                                    <input type="text" id="card-name" placeholder="John Doe">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="card-expiry">Expiry Date</label>
+                                        <input type="text" id="card-expiry" placeholder="MM/YY">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="card-cvv">CVV</label>
+                                        <input type="text" id="card-cvv" placeholder="123">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment-method">
+                            <input type="radio" id="paypal" name="payment-method" value="paypal">
+                            <label for="paypal">PayPal</label>
+                        </div>
+                        <div class="payment-method">
+                            <input type="radio" id="financing" name="payment-method" value="financing">
+                            <label for="financing">Financing Options</label>
+                        </div>
+                    </div>
+                    <div class="order-summary">
+                        <h4>Order Summary</h4>
+                        <div id="checkout-items">
+                            <!-- Items will be loaded via JavaScript -->
+                        </div>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="checkout-subtotal">¢0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Delivery Fee</span>
+                            <span id="checkout-delivery">¢49.99</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Assembly Fee</span>
+                            <span id="checkout-assembly">¢0.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (8%)</span>
+                            <span id="checkout-tax">¢0.00</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="checkout-total">¢0.00</span>
+                        </div>
+                    </div>
+                    <div class="checkout-nav">
+                        <button type="button" class="btn back-btn" data-back="1">Back</button>
+                        <button type="button" class="btn next-btn" data-next="3">Place Order</button>
+                    </div>
+                </div>
+
+                <div class="checkout-content hidden" id="step-3">
+                    <div class="order-confirmation">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Order Confirmed!</h3>
+                        <p>Thank you for your order. Your furniture will be delivered as scheduled.</p>
+                        <div class="order-details">
+                            <h4>Order #<span id="order-number">12345</span></h4>
+                            <p>Delivery scheduled for: <span id="delivery-date">June 15, 2023</span></p>
+                            <p>A delivery confirmation will be sent to your email.</p>
+                        </div>
+                        <a href="index.html" class="btn">Back to Home</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-section">
+                 <img src="pic/AAA.png" height="80px" width="80px" >   
+                                <p> Crafted with passion, delivered with love.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Catalog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Ghana accra tema</p>
+                <p>Phone:+233557501771</p>
+                <p>Email:craftzon@yahoo.com </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 CraftZon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        // Checkout functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default delivery date to 7 days from now
+            const today = new Date();
+            const nextWeek = new Date(today);
+            nextWeek.setDate(today.getDate() + 7);
+            document.getElementById('delivery-time').valueAsDate = nextWeek;
+            
+            // Load order summary
+            updateCheckoutSummary();
+            
+            // Step navigation
+            document.querySelectorAll('.next-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const nextStep = this.dataset.next;
+                    goToStep(nextStep);
+                });
+            });
+            
+            document.querySelectorAll('.back-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const prevStep = this.dataset.back;
+                    goToStep(prevStep);
+                });
+            });
+            
+            // Assembly checkbox
+            document.getElementById('assembly-required').addEventListener('change', function() {
+                updateCheckoutSummary();
+            });
+            
+            // Generate random order number
+            document.getElementById('order-number').textContent = Math.floor(10000 + Math.random() * 90000);
+            
+            // Format delivery date for confirmation
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('delivery-date').textContent = 
+                nextWeek.toLocaleDateString('en-US', options);
+        });
+        
+        function goToStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.checkout-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Show selected step
+            document.getElementById(`step-${step}`).classList.remove('hidden');
+            
+            // Update step indicators
+            document.querySelectorAll('.step').forEach(stepEl => {
+                if (parseInt(stepEl.dataset.step) <= parseInt(step)) {
+                    stepEl.classList.add('active');
+                } else {
+                    stepEl.classList.remove('active');
+                }
+            });
+            
+            // If final step, clear cart
+            if (step === '3') {
+                localStorage.removeItem('cart');
+                updateCartCount();
+            }
+        }
+        
+        function updateCheckoutSummary() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itemsContainer = document.getElementById('checkout-items');
+            itemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = '<p>No items in cart</p>';
+                return;
+            }
+            
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.className = 'checkout-item';
+                itemElement.innerHTML = `
+                    <span>₵${item.name} x ${item.quantity}</span>
+                    <span>₵${(item.price * item.quantity).toFixed(2)}</span>
+                `;
+                itemsContainer.appendChild(itemElement);
+                
+                subtotal += item.price * item.quantity;
+            });
+            
+            const deliveryFee = 49.99;
+            const assemblyFee = document.getElementById('assembly-required').checked ? 99.00 : 0;
+            const tax = (subtotal + deliveryFee + assemblyFee) * 0.08;
+            const total = subtotal + deliveryFee + assemblyFee + tax;
+            
+          document.getElementById('checkout-subtotal').textContent = `₵${subtotal.toFixed(2)}`;
+document.getElementById('checkout-delivery').textContent = `₵${deliveryFee.toFixed(2)}`;
+document.getElementById('checkout-assembly').textContent = `₵${assemblyFee.toFixed(2)}`;
+document.getElementById('checkout-tax').textContent = `₵${tax.toFixed(2)}`;
+document.getElementById('checkout-total').textContent = `₵${total.toFixed(2)}`;
+
+        }
+    </script>
+</body>
+</html>

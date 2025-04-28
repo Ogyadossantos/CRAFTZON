@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Collection - CraftZon</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="pic/AAA.png" height="80" width="80">  
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html" class="active">Collection</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Our Collection</h2>
+            <p>Quality furniture for every home</p>
+        </div>
+    </section>
+
+    <section class="menu-section">
+        <div class="container">
+            <div class="menu-search">
+                <input type="text" id="search-input" placeholder="Search for furniture...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="menu-filters">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="living">Living Room</button>
+                <button class="filter-btn" data-category="bedroom">Bedroom</button>
+                <button class="filter-btn" data-category="dining">Dining</button>
+                <button class="filter-btn" data-category="office">Office</button>
+                <button class="filter-btn" data-category="doors">Doors</button>
+            </div>
+            <div class="menu-items" id="menu-items">
+                <!-- Items will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-section">
+                <img src="pic/AAA.png" height="80" width="80">  
+                <p>Crafted with passion, delivered with love.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Collection</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Ghana, Accra, Tema</p>
+                <p>Phone: +233 557 501 771</p>
+                <p>Email: craftzon@yahoo.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 CraftZon. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script>
+const formatPrice = (price) => price.toLocaleString('en-GH', { style: 'currency', currency: 'GHS' });
+
+const menuItems = [
+    { id: 1, name: "Modern Sofa", price: 4_523.99, category: "living", description: "Contemporary 3-seater sofa with premium fabric", image: "pic/4.jpg" },
+    { id: 2, name: "Leather Recliner", price: 2_980.45, category: "living", description: "Premium leather recliner with adjustable positions", image: "pic/5.jpeg" },
+    { id: 3, name: "Coffee Table", price: 2_430.75, category: "living", description: "Solid wood coffee table with storage", image: "pic/6.jpeg" },
+    { id: 4, name: "TV Stand", price: 2_875.25, category: "living", description: "Modern TV stand with shelving units", image: "pic/7.jpg" },
+    { id: 5, name: "King Size Bed Frame", price: 2_890.00, category: "bedroom", description: "Solid oak king size bed frame with headboard", image: "pic/8.jpg" },
+    { id: 6, name: "Queen Size Bed Frame", price: 2_785.50, category: "bedroom", description: "Elegant queen bed frame with upholstered headboard", image: "pic/9.jpg" },
+    { id: 7, name: "Dresser", price: 2_640.30, category: "bedroom", description: "6-drawer dresser with mirror", image: "pic/10.jpg" },
+    { id: 8, name: "Nightstand", price: 1_755.20, category: "bedroom", description: "Matching nightstand with two drawers", image: "pic/11.jpg" },
+    { id: 9, name: "Dining Table Set", price: 2_600.00, category: "dining", description: "6-piece dining set with table and chairs", image: "pic/3.jpeg" },
+    { id: 10, name: "Bar Stool", price: 2_150.10, category: "dining", description: "Adjustable height bar stool with backrest", image: "pic/14.jpg" },
+      { id: 11, name: "Buffet Cabinet", price: 2000.10, category: "dining", description: "Storage cabinet for dining room essentials", image: "pic/15.jpg" },
+  { id: 12, name: "Executive Desk", price: 3200.50, category: "office", description: "Large office desk with file drawers", image: "pic/17.jpeg" },
+  { id: 13, name: "Office Chair", price: 1500.99, category: "office", description: "Ergonomic office chair with lumbar support", image: "pic/19.jpg" },
+  { id: 14, name: "Bookshelf", price: 1900.00, category: "office", description: "5-shelf bookcase in walnut finish", image: "pic/21.jpg" },
+  { id: 15, name: "Solid Wood Door", price: 2800.00, category: "doors", description: "Premium solid wood interior door", image: "pic/20.jpg" },
+  { id: 16, name: "French Door", price: 3700.70, category: "doors", description: "Elegant double French doors with glass panels", image: "pic/23.jpeg" },
+  { id: 17, name: "Barn Door", price: 3200.20, category: "doors", description: "Rustic sliding barn door with hardware", image: "pic/22.jpg" },
+  { id: 18, name: "Accent Chair", price: 2500.50, category: "living", description: "Modern accent chair with velvet upholstery", image: "pic/24.jpg" },
+  { id: 19, name: "Wardrobe", price: 3100.00, category: "bedroom", description: "Spacious 3-door wardrobe with mirror", image: "pic/25.jpg" },
+  { id: 20, name: "Filing Cabinet", price: 2200.00, category: "office", description: "2-drawer metal filing cabinet", image: "pic/26.jpg" },
+  { id: 21, name: "Sectional Sofa", price: 5000.00, category: "living", description: "L-shaped sectional with chaise lounge", image: "pic/30.jpg" },
+  { id: 22, name: "Console Table", price: 2100.99, category: "living", description: "Slim entryway table with drawer", image: "pic/31.jpg" },
+  { id: 23, name: "Twin Bed Frame", price: 2700.00, category: "bedroom", description: "Modern twin bed frame with underbed storage", image: "pic/32.jpg" },
+  { id: 24, name: "Bunk Bed Frame", price: 2800.00, category: "bedroom", description: "Space-saving twin-over-twin bunk bed frame", image: "pic/33.jpg" },
+  { id: 25, name: "Armoire", price: 3500.00, category: "bedroom", description: "Traditional wardrobe with hanging space", image: "pic/43.jpg" },
+  { id: 26, name: "Vanity Set", price: 2000.40, category: "bedroom", description: "Dressing table with stool and mirror", image: "pic/42.jpg" },
+  { id: 27, name: "Breakfast Nook", price: 3000.00, category: "dining", description: "Corner dining set with bench seating", image: "pic/41.jpg" },
+  { id: 28, name: "China Cabinet", price: 3500.00, category: "dining", description: "Glass-front display cabinet", image: "pic/40.jpg" },
+  { id: 29, name: "Pub Table Set", price: 2100.50, category: "dining", description: "High-top table with 4 stools", image: "pic/39.jpg" },
+  { id: 30, name: "L-Shaped Desk", price: 3800.00, category: "office", description: "Corner workstation with hutch", image: "pic/38.jpg" },
+  { id: 31, name: "Standing Desk", price: 3100.00, category: "office", description: "Height-adjustable electric desk", image: "pic/37.jpg" },
+  { id: 32, name: "Lounge Chair", price: 1500.00, category: "office", description: "Modern reading chair with ottoman", image: "pic/38.jpg" },
+  { id: 33, name: "Sliding Door", price: 2000.40, category: "doors", description: "Contemporary space-saving door", image: "pic/47.jpg" },
+  { id: 34, name: "Pocket Door", price: 2800.00, category: "doors", description: "Disappearing wall-mounted door", image: "pic/48.jpg" },
+  { id: 35, name: "Loveseat", price: 2500.00, category: "living", description: "Compact two-seater sofa", image: "pic/41.jpg" },
+  { id: 36, name: "Ottoman", price: 1500.99, category: "living", description: "Upholstered storage footrest", image: "pic/49.jpg" },
+  { id: 37, name: "Daybed", price: 2300.00, category: "bedroom", description: "Convertible sofa-bed with trundle", image: "pic/34.jpg" },
+  { id: 38, name: "Chest of Drawers", price: 2700.00, category: "bedroom", description: "Vertical 8-drawer storage unit", image: "pic/46.jpg" },
+  { id: 39, name: "Server Cabinet", price: 2000.00, category: "dining", description: "Formal serving station with wine rack", image: "pic/45.jpg" },
+  { id: 40, name: "Credenza", price: 1400.00, category: "office", description: "Executive storage with file space", image: "pic/44.jpg" }
+];
+
+const menuContainer = document.getElementById('menu-items');
+const searchInput = document.getElementById('search-input');
+const searchBtn = document.getElementById('search-btn');
+const filterBtns = document.querySelectorAll('.filter-btn');
+const cartCount = document.getElementById('cart-count');
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function updateCartCount() {
+    const count = cart.reduce((total, item) => total + item.quantity, 0);
+    cartCount.textContent = count;
+}
+
+function loadMenuItems(category = 'all', searchTerm = '') {
+    menuContainer.innerHTML = '';
+    let filtered = menuItems.filter(item => 
+        (category === 'all' || item.category === category) &&
+        (item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+         item.description.toLowerCase().includes(searchTerm.toLowerCase()))
+    );
+
+    if (filtered.length === 0) {
+        menuContainer.innerHTML = '<p class="no-results">No items found matching your criteria.</p>';
+        return;
+    }
+
+    filtered.forEach(item => {
+        const el = document.createElement('div');
+        el.className = 'menu-item';
+        el.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" loading="lazy">
+            <div class="item-info">
+                <h3>${item.name}</h3>
+                <p>${item.description}</p>
+                <div class="item-footer">
+                    <span class="price">${formatPrice(item.price)}</span>
+                    <button class="add-to-cart" data-id="${item.id}">Add to Cart</button>
+                </div>
+            </div>
+        `;
+        menuContainer.appendChild(el);
+    });
+}
+
+function addToCart(id) {
+    const item = menuItems.find(x => x.id === id);
+    if (!item) return;
+
+    const existing = cart.find(x => x.id === id);
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({...item, quantity: 1 });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+}
+
+function setupEvents() {
+    filterBtns.forEach(btn => btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        loadMenuItems(this.dataset.category, searchInput.value);
+    }));
+
+    searchBtn.addEventListener('click', () => loadMenuItems(document.querySelector('.filter-btn.active').dataset.category, searchInput.value));
+    searchInput.addEventListener('keyup', e => { if (e.key === 'Enter') loadMenuItems(document.querySelector('.filter-btn.active').dataset.category, searchInput.value); });
+
+    menuContainer.addEventListener('click', e => {
+        if (e.target.classList.contains('add-to-cart')) {
+            addToCart(parseInt(e.target.dataset.id));
+            e.target.textContent = 'Added!';
+            setTimeout(() => e.target.textContent = 'Add to Cart', 1000);
+        }
+    });
+}
+
+// Initialization
+window.addEventListener('DOMContentLoaded', () => {
+    loadMenuItems();
+    updateCartCount();
+    setupEvents();
+});
+</script>
+
+</body>
+</html>

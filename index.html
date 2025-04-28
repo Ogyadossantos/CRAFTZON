@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAFTZON - Premium Furniture</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+               <img src="pic/AAA.png" height="80px" width="80px" >    
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="menu.html">menu</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+   <section class="carousel-container">
+    <div class="carousel">
+        <!-- Slide 1 -->
+        <div class="slide active">
+            <img src="pic/28.jpeg" alt="Luxury Living Room">
+            <div class="caption">
+                <h2>Premium Furniture For Your Dream Home</h2>
+                <p>Discover handcrafted pieces that combine elegance with functionality</p>
+                <a href="menu.html" class="btn">Shop Now</a>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide">
+            <img src="pic/27.jpeg" alt="Modern Dining Set">
+            <div class="caption">
+                <h2>Elegant Dining Solutions</h2>
+                <p>Perfect for family gatherings and special occasions</p>
+                <a href="menu.html" class="btn">Explore Collections</a>
+            </div>
+        </div>
+        
+       
+    </div>
+    
+    <!-- Navigation buttons -->
+    <button class="carousel-btn prev-btn" aria-label="Previous slide">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    <button class="carousel-btn next-btn" aria-label="Next slide">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+    
+    <!-- Indicators -->
+    <div class="indicators"></div>
+</section>
+
+   <section class="features">
+    <div class="container">
+        <div class="feature-box">
+            <div class="feature-icon">
+                <i class="fas fa-truck"></i>
+            </div>
+            <h3>smooth Delivery</h3>
+            <p>Get your furniture delivered and assembled in no time</p>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon">
+                <i class="fas fa-tree"></i>
+            </div>
+            <h3>Quality Materials</h3>
+            <p>Only the finest wood and materials from trusted suppliers</p>
+        </div>
+        <div class="feature-box">
+            <div class="feature-icon">
+                <i class="fas fa-tag"></i>
+            </div>
+            <h3>Great Deals</h3>
+            <p>Enjoy discounts and special offers on premium furniture</p>
+        </div>
+    </div>
+</section>
+
+   <section class="popular-items">
+    <div class="container">
+        <h2 class="section-title">Featured Collections</h2>
+        <div class="items-grid">
+            <div class="item-card">
+                <img src="pic/1.jpg" alt="Luxury Sofa">
+                <h3>Luxury Sofa</h3>
+                <p>Premium leather sofa with elegant design and maximum comfort</p>
+                <div class="item-footer">
+                    <span class="price">GH¢4,269.99</span>
+                    <button class="add-to-cart" data-id="1" data-name="Luxury Sofa" data-price="4269.99">Add to Cart</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <img src="pic/2.jpeg" alt="Oak Dining Table">
+                <h3>Oak Dining Table</h3>
+                <p>Solid oak table with extension leaves for family gatherings</p>
+                <div class="item-footer">
+                    <span class="price">GH¢909.99</span>
+                    <button class="add-to-cart" data-id="2" data-name="Oak Dining Table" data-price="909.99">Add to Cart</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <img src="pic/39.jpg" alt="Pub Table Set">
+                <h3>Pub Table Set</h3>
+                <p>Solid Pub Table Set with extension leaves for family gatherings</p>
+                <div class="item-footer">
+                    <span class="price">GH¢2,100.50</span>
+                    <button class="add-to-cart" data-id="3" data-name="Pub Table Set" data-price=" 2100.50">Add to Cart</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <img src="pic/35.jpg" alt="King Size Bed frame">
+                <h3>King Size Bed frame</h3>
+                <p>Elegant Bed frame with premium upholstery and storage</p>
+                <div class="item-footer">
+                    <span class="price">GH¢2,890.00</span>
+                    <button class="add-to-cart" data-id="4" data-name="King Size Bed frame" data-price="2890.00">Add to Cart</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <img src="pic/IMG-20250425-WA0081.jpg" alt="Loveseat">
+                <h3>Loveseat</h3>
+                <p>Elegant loveseat with premium upholstery and storage</p>
+                <div class="item-footer">
+                    <span class="price">GH¢2,500.00</span>
+                    <button class="add-to-cart" data-id="5" data-name="Loveseat" data-price="2500.00">Add to Cart</button>
+                </div>
+            </div>
+            <div class="item-card">
+                <img src="pic/44.jpg" alt="Credenza">
+                <h3>Credenza</h3>
+                <p>Elegant credenza with premium upholstery and storage</p>
+                <div class="item-footer">
+                    <span class="price">GH¢1,400.00</span>
+                    <button class="add-to-cart" data-id="6" data-name="Credenza" data-price="1400.00">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <a href="menu.html" class="btn">View All Products</a>
+        </div>
+    </div>
+</section>
+
+
+
+    <footer>
+        <div class="container">
+            <div class="footer-section">
+                  <img src="pic/AAA.png" height="80px" width="80px" >
+                <p> Crafted with passion, delivered with love.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Ghana accra tema</p>
+                <p>Phone:+233557501771</p>
+                <p>Email:craftzon@yahoo.com </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 CraftZon. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>
